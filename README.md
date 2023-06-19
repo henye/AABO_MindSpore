@@ -16,21 +16,21 @@ Since MMDetection is used as the basis in the open source AABO project, only the
 ## 2. Notes
 - Mapping Table
 
-|  PyTorch 1.8.2 APIs   | MindSpore APIs |
-|  :----  | :----  |
-| torch.cat  | mindspore.ops.cat |
-| torch.transpose  | mindspore.Tensor.transpose |
-| torch.Tensor  | mindspore.Tensor |
-| torch.sqrt  | mindspore.sqrt |
-| torch.stack  | mindspore.stack |
-| torch.zeros  | mindspore.zeros |
-| torch.nn.Conv2d  | mindspore.nn.Conv2d |
-| torch.nn.ReLU  | mindspore.nn.ReLU |
-| torch.nn.Sigmoid  | mindspore.nn.Sigmoid |
-| torch.nn.Softmax  | mindspore.nn.Softmax |
-| torch.topk  | mindspore.ops.TopK |
-| torch.nonzero  | mindspore.ops.nonzero |
-| torch.arange  | mindspore.numpy.arange |
+  |  PyTorch 1.8.2 APIs   | MindSpore APIs |
+  |  :----  | :----  |
+  | torch.cat  | mindspore.ops.cat |
+  | torch.transpose  | mindspore.Tensor.transpose |
+  | torch.Tensor  | mindspore.Tensor |
+  | torch.sqrt  | mindspore.sqrt |
+  | torch.stack  | mindspore.stack |
+  | torch.zeros  | mindspore.zeros |
+  | torch.nn.Conv2d  | mindspore.nn.Conv2d |
+  | torch.nn.ReLU  | mindspore.nn.ReLU |
+  | torch.nn.Sigmoid  | mindspore.nn.Sigmoid |
+  | torch.nn.Softmax  | mindspore.nn.Softmax |
+  | torch.topk  | mindspore.ops.TopK |
+  | torch.nonzero  | mindspore.ops.nonzero |
+  | torch.arange  | mindspore.numpy.arange |
 
 - The default value of PyTorch's Conv2d parameter bias is True, which means that bias parameters are added by default, while the default value of MindSpore's parameter has_bias is False, which means that bias functions are not added by default.
 
