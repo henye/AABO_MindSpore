@@ -1,9 +1,9 @@
-#mmdetection/configs/aabo_htc_dcov_x101_64x4d_fpn_24e.py
+# mmdetection/configs/aabo_htc_dcov_x101_64x4d_fpn_24e.py
 # model settings
 model = dict(
     type='HybridTaskCascade',
     num_stages=3,
-    pretrained='open-mmlab://resnext101_64x4d',
+    # pretrained='open-mmlab://resnext101_64x4d',
     interleaved=True,
     mask_info_flow=True,
     backbone=dict(
