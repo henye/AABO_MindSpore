@@ -25,7 +25,7 @@ class AABORPNHead(AnchorHead):
         for i in range(5):
             self.rpn_cls.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * self.cls_out_channels, kernel_size=1, stride=1, has_bias=True, pad_mode='pad'))
             self.rpn_reg.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * 4, kernel_size=1, stride=1, has_bias=True, pad_mode='pad'))
-        self.concat = ops.Concat(axis=0)
+        self.cat = ops.cat(axis=0)
         self.reshape = ops.Reshape()
         self.sigmoid = nn.Sigmoid()
         self.softmax = nn.Softmax(axis=1)
