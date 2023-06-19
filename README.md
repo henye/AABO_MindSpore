@@ -15,6 +15,7 @@ Since MMDetection is used as the basis in the open source AABO project, only the
 
 ## 2. Notes
 - Mapping Table
+
 |  PyTorch 1.8.2 APIs   | MindSpore APIs |
 |  :----  | :----  |
 | torch.cat  | mindspore.ops.cat |
