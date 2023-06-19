@@ -19,12 +19,12 @@ class AABORPNHead(AnchorHead):
         self.target_means = Tensor(kwargs['target_means'])
         self.target_stds = Tensor(kwargs['target_stds'])
         self.use_sigmoid_cls = kwargs.get('use_sigmoid_cls', False)
-        self.rpn_conv = nn.Conv2d(self.in_channels, self.feat_channels, kernel_size=3, stride=1, padding=1)
+        self.rpn_conv = nn.Conv2d(self.in_channels, self.feat_channels, kernel_size=3, stride=1, padding=1, has_bias=True)
         self.rpn_cls = nn.CellList()
         self.rpn_reg = nn.CellList()
         for i in range(5):
-            self.rpn_cls.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * self.cls_out_channels, kernel_size=1, stride=1, pad_mode='pad'))
-            self.rpn_reg.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * 4, kernel_size=1, stride=1, pad_mode='pad'))
+            self.rpn_cls.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * self.cls_out_channels, kernel_size=1, stride=1, has_bias=True, pad_mode='pad'))
+            self.rpn_reg.append(nn.Conv2d(self.feat_channels, self.num_anchors_list[i] * 4, kernel_size=1, stride=1, has_bias=True, pad_mode='pad'))
         self.concat = ops.Concat(axis=0)
         self.reshape = ops.Reshape()
         self.sigmoid = nn.Sigmoid()
@@ -82,11 +82,11 @@ class AABORPNHead(AnchorHead):
                 valid_inds = ops.NonZero()(ops.logical_and(w >= cfg.min_bbox_size, h >= cfg.min_bbox_size)).squeeze()
                 proposals = proposals[valid_inds, :]
                 scores = scores[valid_inds]
-            proposals = ops.Concat()(proposals, ops.ExpandDims()(scores, -1), axis=-1)
+            proposals = ops.cat()(proposals, ops.ExpandDims()(scores, -1), axis=-1)
             proposals, _ = nms(proposals, cfg.nms_thr)
             proposals = proposals[:cfg.nms_post, :]
             mlvl_proposals.append(proposals)
-        proposals = ops.Concat()(mlvl_proposals, 0)
+        proposals = ops.cat()(mlvl_proposals, 0)
         if cfg.nms_across_levels:
             proposals, _ = nms(proposals, cfg.nms_thr)
             proposals = proposals[:cfg.max_num, :]
