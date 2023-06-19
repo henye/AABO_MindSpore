@@ -32,6 +32,7 @@ Mapping Table
 | torch.arange  | mindspore.numpy.arange |
 
 The default value of PyTorch's Conv2d parameter bias is True, which means that bias parameters are added by default, while the default value of MindSpore's parameter has_bias is False, which means that bias functions are not added by default.
+
 Note that I've used np.meshgrid to create the meshgrid arrays since MindSpore doesn't have an equivalent function. I've used astype instead of type_as to convert the shifts tensor to the same datatype as base_anchors. I've used broadcast_to and contiguous_view instead of expand and contiguous.
 
 ## 3. Implementation
