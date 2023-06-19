@@ -18,12 +18,18 @@ Mapping Table
 |  PyTorch 1.8.2 APIs   | MindSpore APIs |
 |  :----  | :----  |
 | torch.cat  | mindspore.ops.cat |
+| torch.transpose  | mindspore.Tensor.transpose |
 | torch.Tensor  | mindspore.Tensor |
 | torch.sqrt  | mindspore.sqrt |
 | torch.stack  | mindspore.stack |
 | torch.zeros  | mindspore.zeros |
 | torch.nn.Conv2d  | mindspore.nn.Conv2d |
+| torch.nn.ReLU  | mindspore.nn.ReLU |
+| torch.nn.Sigmoid  | mindspore.nn.Sigmoid |
+| torch.nn.Softmax  | mindspore.nn.Softmax |
+| torch.topk  | mindspore.ops.TopK |
 
+The default value of PyTorch's parameter bias is True, which means that bias parameters are added by default, while the default value of MindSpore's parameter has_bias is False, which means that bias functions are not added by default.
 Note that I've used np.meshgrid to create the meshgrid arrays since MindSpore doesn't have an equivalent function. I've used astype instead of type_as to convert the shifts tensor to the same datatype as base_anchors. I've used broadcast_to and contiguous_view instead of expand and contiguous.
 
 ## 3. Implementation
