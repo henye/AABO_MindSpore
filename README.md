@@ -7,10 +7,10 @@ Since MMDetection is used as the basis in the open source AABO project, only the
 - The following code was ported:
   - `AABO_mindspore/aabo_rpn_head.py`
 - The following code was ported but not used:
-  - `AABO_mindspore/anchor_generator.py`
-  - `AABO_mindspore/anchor_head.py`
-  - `AABO_mindspore/aabo_mask_rcnn_r101_fpn_2x.py`
-  - `AABO_mindspore/aabo_htc_dcov_x101_64x4d_fpn_24e.py`
+  - `AABO_mindspore/mindspore_anchor_generator.py`
+  - `AABO_mindspore/mindspore_anchor_head.py`
+  - `AABO_mindspore/mindspore_aabo_mask_rcnn_r101_fpn_2x.py`
+  - `AABO_mindspore/mindspore_aabo_htc_dcov_x101_64x4d_fpn_24e.py`
 - Code was tested with mindspore 2.0.0rc1, mindinsight 2.0.0rc1, Pytorch 1.8.2 and [MMdetection v1.0rc1](https://github.com/open-mmlab/mmdetection/tree/v1.0rc1).
 
 ## 2. Porting
