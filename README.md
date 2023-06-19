@@ -13,7 +13,7 @@ Since MMDetection is used as the basis in the open source AABO project, only the
   - `AABO_mindspore/mindspore_aabo_htc_dcov_x101_64x4d_fpn_24e.py`
 - Code was tested with mindspore 2.0.0rc1, mindinsight 2.0.0rc1, Pytorch 1.8.2 and [MMdetection v1.0rc1](https://github.com/open-mmlab/mmdetection/tree/v1.0rc1).
 
-## 2. Porting
+## 2. Notes
 Mapping Table
 |  PyTorch 1.8.2 APIs   | MindSpore APIs |
 |  :----  | :----  |
