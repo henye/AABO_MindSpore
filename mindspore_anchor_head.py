@@ -95,6 +95,27 @@ class AnchorHead(Cell):
             self.num_anchors = len(self.anchor_ratios) * len(self.anchor_scales)
         #Change over
 
+    def _init_layers(self):
+        self.conv_cls = nn.Conv2d(self.in_channels,
+                                  self.num_anchors * self.cls_out_channels, 1, has_bias=True)
+        self.conv_reg = nn.Conv2d(self.in_channels, self.num_anchors * 4, 1, has_bias=True)
+
+    def init_weights(self):
+        normal_init(self.conv_cls, std=0.01)
+        normal_init(self.conv_reg, std=0.01)
+
+    def forward_single(self, x):
+        cls_score = self.conv_cls(x)
+        bbox_pred = self.conv_reg(x)
+        return cls_score, bbox_pred
+
+    def forward(self, feats):
+        #change here
+        if self.muti_scales:
+            return multi_apply(self.forward_single, zip(feats, list(range(len(feats)))))
+        else:
+            return multi_apply(self.forward_single, feats)
+        # change over
     def get_anchors(self, featmap_sizes, img_metas, device='cuda'):
         """Get anchors according to feature map sizes.
 
