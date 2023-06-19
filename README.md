@@ -2,7 +2,7 @@
 AABO with Huawei mindspore
 ## Introduction
 Since mmdetection is used as the basis in the open source AABO project, only the original part of AABO was code ported for this project.
-- Referred to the official manual [PyTorch与MindSpore API映射表](https://www.mindspore.cn/docs/zh-CN/r2.0.0-alpha/note/api_mapping/pytorch_api_mapping.html) for code migration.
+- Referred to the official manual [PyTorch and MindSpore API Mapping Table](https://www.mindspore.cn/docs/en/r2.0.0-alpha/note/api_mapping/pytorch_api_mapping.html) for code migration.
 - The following code was ported:
   - `AABO_mindspore/aabo_rpn_head.py`
 - The following code was ported but not used:
