@@ -13,13 +13,18 @@ Since MMDetection is used as the basis in the open source AABO project, only the
   - `AABO_mindspore/aabo_htc_dcov_x101_64x4d_fpn_24e.py`
 - Code was tested with mindspore 2.0.0rc1, mindinsight 2.0.0rc1, Pytorch 1.8.2 and [MMdetection v1.0rc1](https://github.com/open-mmlab/mmdetection/tree/v1.0rc1).
 
-## 2. Mapping Table
-torch
+## 2. Porting
+Mapping Table
 |  PyTorch 1.8.2 APIs   | MindSpore APIs |
 |  :----  | :----  |
 | torch.cat  | mindspore.ops.cat |
-| 单元格  | 单元格 |
+| torch.Tensor  | mindspore.Tensor |
+| torch.sqrt  | mindspore.sqrt |
+| torch.stack  | mindspore.stack |
+| torch.zeros  | mindspore.zeros |
+| torch.nn.Conv2d  | mindspore.nn.Conv2d |
 
+Note that I've used np.meshgrid to create the meshgrid arrays since MindSpore doesn't have an equivalent function. I've used astype instead of type_as to convert the shifts tensor to the same datatype as base_anchors. I've used broadcast_to and contiguous_view instead of expand and contiguous.
 
 ## 3. Implementation
 - Replace the original files in MMDetection with  new files:
