@@ -1,5 +1,5 @@
 # AABO_mindspore
-AABO with Huawei mindspore.
+Ported AABO with Huawei mindspore.
 
 ## 1. Introduction
 Since MMDetection is used as the basis in the open source AABO project, only the original part of AABO was code ported for this project.
