@@ -1,4 +1,4 @@
-#mmdetection/mmdet/core/anchor/anchor_generator.py
+# mmdetection/mmdet/core/anchor/anchor_generator.py
 import torch
 
 
